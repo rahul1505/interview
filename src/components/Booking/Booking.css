@@ -1,0 +1,17 @@
+  
+  @media (max-width: 600px) {
+   
+    input[type=text],
+    input[type=email],
+    input[type=url],
+    input[type=password]    
+    select {
+      width: 100%; 
+    }
+  }
+  @media (min-width: 1200px) {
+    form > div > label,
+      legend {
+        text-align: right;
+    }
+  }

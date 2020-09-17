@@ -1,0 +1,194 @@
+.App {
+  text-align: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+
+.Image {
+  float: left;   
+ }
+.Image img {
+height: 150px;
+}   
+.Info {
+   width:100%;
+   margin-top: 8%;
+   
+ }
+ .BookingInfo {
+  width:100%;
+ }
+
+.clear {
+   clear: both;
+ }
+
+ .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.Submit {
+  margin-right:10px;
+}
+
+.Green {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+}
+
+.Red {
+  background-color: #e41e1e;
+  color: white;
+  border: 2px solid #e41e1e;
+}
+
+.Green:hover, .Red:hover {
+  background-color: white; 
+  color: black; 
+ 
+}   
+.ThankYou {
+  color: red;
+    font-weight: bold;
+}
+
+.Gray {
+  background-color: #e7e7e7;
+  color: black;
+  border: 2px solid #e7e7e7;
+  padding: 12px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.form-control label {
+  float: left;
+  width: 34%;
+  text-align: right;
+  padding-right:20px;
+
+}
+
+input[type=text], input[type=date], 
+input[type=number],input[type=email] {
+  width: 50%;
+}
+.select-field {
+  width: 51%;
+}
+ .row,
+ .column {
+   box-sizing: border-box;
+ }
+ .row:before,
+ .row:after {
+   content: '';
+   display: table;
+ }
+ .row:after {
+   clear: both;
+ }
+ .column {
+   position: relative;
+   display: block;
+   margin-bottom:20px;
+ }
+ 
+ /* Mobile Devices Styling */
+ .column-3,
+.column-4,
+.column-6,{
+   width: auto;
+   float: none;
+ }
+ .column + .column {
+   margin-left: 0;
+ }
+ 
+ /* General Styling */
+ body {
+   padding: 10px;
+ }
+ .row {
+   margin-bottom: 0;
+ }
+ .column {
+   color: #fff;
+   padding: 20px;
+   min-height: 30px;
+   margin-bottom: 10px;
+ }
+ .row:last-child .column:last-child {
+   margin-bottom: 0;
+ }
+ 
+ 
+.BackgroundMaroon {
+  background-color: #4e2121;
+ }
+
+.BackgroundYellow {
+  background-color: #F5B939;
+ 
+}
+
+.Disabled {
+  cursor: not-allowed;
+    pointer-events: none;
+    color: #c0c0c0;
+    border: 2px solid #fff;
+    background-color: #ffffff;
+}
+ 
+ 
+ /* Larger Screens Styling */
+ @media only screen and (min-width: 768px) {
+   .column {
+     position: relative;
+     float: left;
+     margin-bottom: 20px;
+   }
+   .column + .column {
+     margin-left: 0.6%;
+   }
+   .row {
+     margin-bottom: 10px;  
+   }
+   .row .row:last-child {
+     margin-bottom: 0;
+   }
+   
+   
+   .column-3 {
+    width: 23.8%;
+  }
+  .column-4 {
+    width: 32.2666666667%;
+  }
+  .column-6 {
+    width: 49.2%;
+  }
+ }
+ 

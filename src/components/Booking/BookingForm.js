@@ -16,6 +16,9 @@ const BookingForm = React.memo(props => {
   const [enteredAttendee, setEnteredAttendee] = useState('');
   const [message, setMessage] = useState('');
   const [booked, setBooked] = useState(false);
+  const [error,setError]  = useState('');
+  const [Seatserror,setSeatsError]  = useState('');
+  
   
   
   const submitHandler = event => {
@@ -28,6 +31,30 @@ const BookingForm = React.memo(props => {
    // let path = `/`; 
     //history.push(path);
   }; 
+ 
+  const onChangeName = (e) => {
+    const getUserGivenName = e.target.value;
+    const regex = /^[A-Za-z ]+$/;
+    const isValid = regex.test(getUserGivenName);
+    if (isValid) {
+       setEnteredBookingName(getUserGivenName);
+      setError('');
+    } else {
+        setError(`Only letters and spaces are allowed`);
+    }
+  };
+
+  const onChangeSelect = (e) => {
+    const getUserSelectValue = e.target.value;
+    if( getUserSelectValue > props.seatCount)
+     {
+        setSeatsError(`Number of seats selected greater than available seats`);
+     } else {
+        setEnteredSeats(getUserSelectValue);
+        setSeatsError('');
+     }
+  };
+
  
   return (
 
@@ -51,12 +78,11 @@ const BookingForm = React.memo(props => {
                                         type="text"
                                         id="bookingName"
                                         value={enteredBookingName}
-                                        onChange={event => {
-                                          setEnteredBookingName(event.target.value);
-                                        }}
+                                       onChange={(e) => onChangeName(e)}
                                         required
                                         />
-                                    </div>
+                                      </div>
+                                      <p className='errorMessage'> {error} </p>
                                     <div className="form-control">
                                         <label htmlFor="email">Email:</label>
                                         <input
@@ -66,9 +92,11 @@ const BookingForm = React.memo(props => {
                                         onChange={event => {
                                             setEnteredEmail(event.target.value);
                                         }}
-                                        required
+                                        
                                         />
                                     </div>
+                                  
+                                    
                                     <div className="form-control">
                                         <label htmlFor="number">Phone No:</label>
                                         <input
@@ -83,9 +111,8 @@ const BookingForm = React.memo(props => {
                                     <div className="form-control">
                                         <label htmlFor="seats">Number of seats</label>
                                         <select name="seatsNeeded" className="select-field" id="seats" value={enteredSeats}
-                                        onChange={event => {
-                                            setEnteredSeats(event.target.value);
-                                        }} >
+                                       onChange={(e) => onChangeSelect(e)}
+                                        required>
                                             <option value="0">0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -93,6 +120,7 @@ const BookingForm = React.memo(props => {
                                             <option value="4">4</option>
                                         </select>
                                     </div>
+                                    <p className='errorMessage'> {Seatserror} </p>
                                     <div className="form-control">
                                         <label htmlFor="attendee">Number of Attendee</label>
                                         <input

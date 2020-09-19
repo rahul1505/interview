@@ -16,7 +16,7 @@ const {
   const bookingHandler = useCallback(book => {
     
     sendRequest(
-      `https://interview-1d834.firebaseio.com/posts/${eId}.json`,
+      `https://interview1-e2499.firebaseio.com/posts/${eId}.json`,
       'PATCH',
       JSON.stringify(book),
       book

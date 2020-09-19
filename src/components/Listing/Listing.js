@@ -16,7 +16,7 @@ class listing extends Component {
    //request to data with axios
   getPosts() {
     axios
-      .get("https://interview-1d834.firebaseio.com/posts.json")
+      .get("https://interview1-e2499.firebaseio.com/posts.json")
       .then(response => {
         this.setState({
           posts: response.data,

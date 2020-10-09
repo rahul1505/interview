@@ -18,6 +18,7 @@ const BookingForm = React.memo(props => {
   const [booked, setBooked] = useState(false);
   const [error,setError]  = useState('');
   const [Seatserror,setSeatsError]  = useState('');
+  const [attandeeFrom, setAttandeeForm] = useState([]);
   
   
   
@@ -46,13 +47,44 @@ const BookingForm = React.memo(props => {
 
   const onChangeSelect = (e) => {
     const getUserSelectValue = e.target.value;
-    if( getUserSelectValue > props.seatCount)
-     {
-        setSeatsError(`Number of seats selected greater than available seats`);
-     } else {
-        setEnteredSeats(getUserSelectValue);
-        setSeatsError('');
-     }
+    if (getUserSelectValue > props.seatCount) {
+      setSeatsError(`Number of seats selected greater than available seats`);
+    } else {
+      setEnteredSeats(getUserSelectValue);
+      setSeatsError("");
+      createAttandeeForm(getUserSelectValue);
+    }
+  };
+
+  const onChangeAtandeeName = (index, e) => {
+    let getenteredAttendee = Object.assign([], enteredAttendee);
+
+    if (getenteredAttendee[index]) {
+      getenteredAttendee[index] = e.target.value;
+    } 
+
+    setEnteredAttendee(getenteredAttendee);
+  };
+
+  const createAttandeeForm = (value) => {
+    let htmlValue = [];
+
+    for (let i = 0; i < value; i++) {
+      htmlValue.push(
+        <div className="form-control">
+          <label htmlFor="attendee">Name of Attendee #{i+1}</label>
+          <input
+            type="text"
+            id="attendee"
+            value={enteredAttendee[i]}
+            onChange={(e) => onChangeAtandeeName(i, e)}
+            required={enteredSeats === 1 ? false : true}
+          />
+        </div>
+      );
+    }
+
+    setAttandeeForm(htmlValue);
   };
 
  
@@ -82,6 +114,7 @@ const BookingForm = React.memo(props => {
                                         required
                                         />
                                       </div>
+
                                       <p className='errorMessage'> {error} </p>
                                     <div className="form-control">
                                         <label htmlFor="email">Email:</label>
@@ -121,17 +154,11 @@ const BookingForm = React.memo(props => {
                                         </select>
                                     </div>
                                     <p className='errorMessage'> {Seatserror} </p>
-                                    <div className="form-control">
-                                        <label htmlFor="attendee">Number of Attendee</label>
-                                        <input
-                                        type="text"
-                                        id="attendee"
-                                        value={enteredAttendee}
-                                        onChange={event => {
-                                            setEnteredAttendee(event.target.value);
-                                        }}
-                                        />
-                                    </div>
+                                   
+                                       
+                                    {attandeeFrom}
+                                        
+                                   
                                     <p className="ThankYou">{message}  </p>
                                     <div className="Submit">
                                         <button type="submit" className={`Submit Green ${booked ? "Disabled" : ""}`}  > Submit</button>

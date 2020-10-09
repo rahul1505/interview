@@ -6,7 +6,13 @@
   font-size: 1.5em;
 }
 
-
+.search {
+  margin-bottom: 20px;
+  width: 20%;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+ }
 .Image {
   float: left;   
  }
@@ -119,7 +125,7 @@ input[type=number],input[type=email] {
  /* Mobile Devices Styling */
  .column-3,
 .column-4,
-.column-6,{
+.column-6{
    width: auto;
    float: none;
  }

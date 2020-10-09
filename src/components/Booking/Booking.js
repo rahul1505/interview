@@ -16,7 +16,7 @@ const {
   const bookingHandler = useCallback(book => {
     
     sendRequest(
-      `https://interview1-e2499.firebaseio.com/posts/${eId}.json`,
+      `https://interfinal-e73c3.firebaseio.com/posts/${eId}.json`,
       'PATCH',
       JSON.stringify(book),
       book
@@ -33,8 +33,8 @@ const {
   return (
     <div className="App">
      
-      <BookingForm eventTitle = {location.state.fromDashboard['title']} 
-        seatCount = {location.state.count['seats']}
+      <BookingForm eventTitle = {location.state.fromDashboard} 
+        seatCount = {location.state.count}
         onAddBooking={bookingHandler}
         click= {routeChange}
         

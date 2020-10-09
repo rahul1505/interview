@@ -17,6 +17,7 @@ class App extends Component {
                 render={({match}) => <Booking eventId={match.params.Id}  />}
                  />
                 <Route path="/" component={Listing} />
+               
              </Switch>
                
       </div>
